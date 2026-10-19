@@ -1,7 +1,7 @@
 {
   "name": "vector-search-node",
-  "version": "0.1.0",
-  "description": "Local semantic + hybrid search with pgvector, Ollama (Llama), query analysis, re-ranking and RAG answers. Heavily logged for learning and debugging.",
+  "version": "0.2.0",
+  "description": "Agentic RAG movie search built as finite state machines (XState v5): hybrid pgvector + Elasticsearch retrieval, query-analysis routing, re-ranking, reflection and grounded RAG answers. Heavily logged for learning and debugging.",
   "type": "module",
   "main": "src/server.js",
   "engines": {
@@ -23,6 +23,7 @@
     "fastify": "^5.2.0",
     "pg": "^8.13.1",
     "pino": "^9.5.0",
-    "pino-pretty": "^13.0.0"
+    "pino-pretty": "^13.0.0",
+    "xstate": "^5.19.0"
   }
 }
