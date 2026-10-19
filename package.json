@@ -1,0 +1,28 @@
+{
+  "name": "vector-search-node",
+  "version": "0.1.0",
+  "description": "Local semantic + hybrid search with pgvector, Ollama (Llama), query analysis, re-ranking and RAG answers. Heavily logged for learning and debugging.",
+  "type": "module",
+  "main": "src/server.js",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "doctor": "node src/scripts/doctor.js",
+    "db:init": "node src/scripts/db-init.js",
+    "ingest": "node src/ingest/ingest.js",
+    "ask": "node src/scripts/ask.js",
+    "sync:elastic": "node src/ingest/sync-elastic.js",
+    "compare": "node src/scripts/compare.js",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "fastify": "^5.2.0",
+    "pg": "^8.13.1",
+    "pino": "^9.5.0",
+    "pino-pretty": "^13.0.0"
+  }
+}

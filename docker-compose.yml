@@ -1,0 +1,61 @@
+services:
+  postgres:
+    image: pgvector/pgvector:pg17
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: vectors
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      # runs once, on first start with an empty volume
+      - ./sql/schema.sql:/docker-entrypoint-initdb.d/01-schema.sql:ro
+    # log every statement taking >200ms on the DB side too
+    command: ["postgres", "-c", "log_min_duration_statement=200"]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d vectors"]
+      interval: 5s
+      retries: 10
+
+  # Optional: docker compose --profile rerank up -d
+  reranker:
+    build: ./reranker
+    profiles: ["rerank"]
+    ports:
+      - "8000:8000"
+    volumes:
+      - hfcache:/root/.cache/huggingface
+
+  # Optional: docker compose --profile elastic up -d     (then: npm run sync:elastic)
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.15.3
+    profiles: ["elastic"]
+    environment:
+      - discovery.type=single-node
+      - xpack.security.enabled=false   # local learning only — never in production
+      - ES_JAVA_OPTS=-Xms1g -Xmx1g
+    ports:
+      - "9200:9200"
+    volumes:
+      - esdata:/usr/share/elasticsearch/data
+    healthcheck:
+      test: ["CMD-SHELL", "curl -s localhost:9200/_cluster/health | grep -qv red"]
+      interval: 10s
+      retries: 20
+
+  # Optional UI for Elastic (Dev Tools console, index browser): http://localhost:5601
+  kibana:
+    image: docker.elastic.co/kibana/kibana:8.15.3
+    profiles: ["elastic-ui"]
+    environment:
+      - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
+    ports:
+      - "5601:5601"
+    depends_on:
+      - elasticsearch
+
+volumes:
+  esdata:
+  pgdata:
+  hfcache:

@@ -1,0 +1,6 @@
+[
+  { "styleCode": "DEMO-001", "name": "Trail Runner Lite", "category": "running", "tags": ["trail", "lightweight", "waterproof"], "price": 120, "rating": 4.5, "color": "black", "description": "A light trail running shoe with a grippy outsole and a water-resistant upper for muddy mornings." },
+  { "styleCode": "DEMO-002", "name": "Court Classic Low", "category": "lifestyle", "tags": ["leather", "everyday", "retro"], "price": 95, "rating": 4.2, "color": "white", "description": "A clean leather low-top with a cushioned insole, made for all-day casual wear." },
+  { "styleCode": "DEMO-003", "name": "Tempo Racer", "category": "running", "tags": ["road", "racing", "carbon plate"], "price": 220, "rating": 4.7, "color": "volt", "description": "A responsive road racing shoe with a stiff plate and springy foam for race day speed." },
+  { "styleCode": "DEMO-004", "name": "Hoop Elite Mid", "category": "basketball", "tags": ["ankle support", "indoor"], "price": 140, "rating": 4.4, "color": "red", "description": "A mid-top basketball shoe with ankle support and a herringbone traction pattern for hardwood courts." }
+]
