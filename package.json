@@ -1,7 +1,7 @@
 {
-  "name": "vector-search-node",
+  "name": "glassbox-rag",
   "version": "0.2.0",
-  "description": "Agentic RAG movie search built as finite state machines (XState v5): hybrid pgvector + Elasticsearch retrieval, query-analysis routing, re-ranking, reflection and grounded RAG answers. Heavily logged for learning and debugging.",
+  "description": "A glass-box RAG search engine: local-first hybrid retrieval (pgvector + Elasticsearch), query-analysis routing, RRF fusion, cross-encoder re-ranking and grounded RAG answers. Every stage logs what it did, why, and how long it took — meant to be read in the logs while you learn.",
   "type": "module",
   "main": "src/server.js",
   "engines": {

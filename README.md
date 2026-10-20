@@ -1,6 +1,6 @@
-# vector-search-node
+# glassbox-rag
 
-A local, fully-logged **semantic + hybrid search engine with a conversational answer**, built on:
+A **glass-box RAG search engine** — a local, fully-logged **semantic + hybrid search engine with a conversational answer**. Nothing is a black box: every stage logs what it did, why, and how long it took, so you can read the whole pipeline in the logs while you learn. Built on:
 
 - **Postgres + pgvector** — metadata and embeddings in one database
 - **Ollama** — local embeddings (`nomic-embed-text`) and a local Llama (`llama3.1:8b`)

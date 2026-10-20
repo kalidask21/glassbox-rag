@@ -31,7 +31,7 @@ if (config.log.file) {
 export const logger = pino(
   {
     level: config.log.level,
-    base: { app: 'vector-search' },
+    base: { app: 'glassbox' },
     serializers: { err: pino.stdSerializers.err },
   },
   pino.transport({ targets }),
