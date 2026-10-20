@@ -75,6 +75,10 @@ It ships with a small movie dataset and a sample product dataset so you can see 
 **Prerequisites:** Node 20+, Docker, [Ollama](https://ollama.com).
 
 ```bash
+# 0. Clone
+git clone https://github.com/kalidask21/glassbox-rag.git
+cd glassbox-rag
+
 # 1. Database (Postgres 17 + pgvector; schema is created automatically on first start)
 docker compose up -d
 
